@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Ecosystem Mastery Program — 8-Month Curriculum</title>
+<meta name="description" content="A free 8-month self-paced curriculum to master Claude AI, prompt engineering, Claude Code, GitHub, MCP, and AI engineering from beginner to professional.">
+<meta name="theme-color" content="#0a0a12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #0a0a12;
+  --bg-card: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.07);
+  --text: #f0f0f5;
+  --text-muted: rgba(255,255,255,0.5);
+  --text-dim: rgba(255,255,255,0.3);
+  --accent: #7c3aed;
+  --accent-soft: #a78bfa;
+  --accent-glow: rgba(124,58,237,0.25);
+  --blue: #2563eb;
+  --green: #059669;
+  --green-bright: #10b981;
+  --amber: #d97706;
+  --red: #dc2626;
+  --cyan: #0891b2;
+  --orange: #ea580c;
+  --radius: 14px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0f0a1e 0%, #1a0a2e 40%, #0d1b2a 100%);
+  border-bottom: 1px solid rgba(124,58,237,0.15);
+}
+.hero__glow-1 {
+  position: absolute; top: -140px; right: -100px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(124,58,237,0.13) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero__glow-2 {
+  position: absolute; bottom: -100px; left: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(37,99,235,0.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero__inner { max-width: 980px; margin: 0 auto; padding: 44px 24px 36px; position: relative; }
+
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 10px;
+}
+.hero__dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 10px var(--accent);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+.hero__badge-text {
+  font-size: 11px; font-weight: 700; color: var(--accent-soft);
+  letter-spacing: 1.8px; text-transform: uppercase;
+}
+.hero__title {
+  font-size: clamp(30px, 5.5vw, 46px); font-weight: 900; line-height: 1.1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #fff 0%, #c4b5fd 55%, #818cf8 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero__subtitle {
+  font-size: 15px; color: var(--text-muted); max-width: 540px;
+  line-height: 1.65; margin-bottom: 28px;
+}
+.hero__subtitle strong { color: #c4b5fd; font-weight: 600; }
+
+/* Stats grid */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.stat {
+  padding: 14px 16px; border-radius: var(--radius-sm);
+  background: var(--bg-card); border: 1px solid var(--border);
+}
+.stat__label { font-size: 11px; color: var(--text-dim); font-weight: 500; letter-spacing: 0.4px; }
+.stat__value { font-size: 24px; font-weight: 800; margin-top: 4px; }
+.stat__sub { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+/* Overall progress bar */
+.progress-track {
+  height: 8px; border-radius: 4px;
+  background: rgba(255,255,255,0.07); overflow: hidden;
+}
+.progress-fill {
+  height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #7c3aed, #2563eb, #0891b2);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-fill[data-active="true"] { box-shadow: 0 0 14px rgba(124,58,237,0.45); }
+
+/* ── STICKY NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,10,18,0.92); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav__inner {
+  max-width: 980px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; gap: 2px; overflow-x: auto;
+}
+.nav__tab {
+  padding: 14px 16px; font-size: 13px; font-weight: 600;
+  background: none; border: none; border-bottom: 2px solid transparent;
+  color: var(--text-muted); cursor: pointer; white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav__tab:hover { color: rgba(255,255,255,0.7); }
+.nav__tab--active { color: #c4b5fd; border-bottom-color: var(--accent); }
+.nav__spacer { flex: 1; }
+.nav__btn {
+  padding: 7px 12px; font-size: 11px; font-weight: 600;
+  border-radius: 8px; cursor: pointer; white-space: nowrap;
+  transition: filter 0.2s;
+}
+.nav__btn:hover { filter: brightness(1.15); }
+.nav__btn--danger {
+  background: rgba(239,68,68,0.1); color: #f87171;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+.nav__btn--export {
+  background: rgba(16,185,129,0.1); color: #6ee7b7;
+  border: 1px solid rgba(16,185,129,0.2); margin-right: 6px;
+}
+
+/* ── MAIN ── */
+.main { max-width: 980px; margin: 0 auto; padding: 28px 24px 72px; }
+.section { display: none; }
+.section--active { display: block; }
+
+/* ── MONTH TIMELINE ── */
+.timeline {
+  display: flex; gap: 6px; overflow-x: auto; padding-bottom: 14px;
+  margin-bottom: 28px; border-bottom: 1px solid var(--border);
+}
+.timeline__btn {
+  flex: 0 0 auto; padding: 10px 15px; border-radius: var(--radius-sm);
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-muted); cursor: pointer; display: flex;
+  align-items: center; gap: 7px; font-size: 13px; font-weight: 500;
+  transition: all 0.2s;
+}
+.timeline__btn:hover { border-color: rgba(255,255,255,0.15); color: var(--text); }
+.timeline__btn--active { border-color: var(--accent); background: rgba(124,58,237,0.08); color: white; }
+.timeline__icon { font-size: 18px; }
+.timeline__check { color: var(--green-bright); font-size: 12px; }
+
+/* ── MONTH PANEL ── */
+.month-panel {
+  border-radius: 18px; padding: 28px;
+  background: var(--bg-card); border: 2px solid rgba(124,58,237,0.25);
+}
+.month-header { display: flex; align-items: center; gap: 18px; margin-bottom: 8px; flex-wrap: wrap; }
+.month-icon {
+  width: 56px; height: 56px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; flex-shrink: 0;
+}
+.month-meta { flex: 1; min-width: 180px; }
+.month-phase { font-size: 11px; font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase; }
+.month-title { font-size: 22px; font-weight: 800; margin-top: 2px; }
+
+/* Progress ring (SVG in JS) */
+.ring-wrap { flex-shrink: 0; }
+
+.objectives {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px;
+}
+.obj-tag {
+  font-size: 11px; padding: 5px 12px; border-radius: 20px;
+  background: rgba(255,255,255,0.05); color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── WEEK CARD ── */
+.weeks-list { display: flex; flex-direction: column; gap: 10px; }
+
+.week-card {
+  border-radius: 12px; overflow: hidden;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.week-card:hover { border-color: rgba(255,255,255,0.12); }
+
+.week-header {
+  width: 100%; padding: 14px 18px; display: flex; align-items: center; gap: 12px;
+  background: none; border: none; color: white; cursor: pointer; text-align: left;
+  font-family: inherit;
+}
+.week-num {
+  width: 34px; height: 34px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+.week-num--done { background: rgba(16,185,129,0.18); color: var(--green-bright); }
+.week-num--pending { background: rgba(124,58,237,0.14); color: var(--accent-soft); }
+.week-info { flex: 1; min-width: 0; }
+.week-name { font-weight: 600; font-size: 14.5px; }
+.week-sub { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; }
+.week-bar {
+  width: 52px; height: 5px; border-radius: 3px;
+  background: rgba(255,255,255,0.08); overflow: hidden; flex-shrink: 0;
+}
+.week-bar__fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+.week-chevron {
+  font-size: 16px; transition: transform 0.25s;
+  color: var(--text-muted);
+}
+.week-chevron--open { transform: rotate(180deg); }
+
+.week-body { padding: 0 18px 18px; }
+.week-body__label {
+  font-size: 11px; font-weight: 700; color: var(--accent-soft);
+  letter-spacing: 0.6px; margin-bottom: 8px;
+}
+
+/* Topic checkbox */
+.topic {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer; user-select: none;
+}
+.topic:last-child { border-bottom: none; }
+.topic__check {
+  margin-top: 2px; accent-color: var(--accent);
+  width: 16px; height: 16px; cursor: pointer; flex-shrink: 0;
+}
+.topic__text { font-size: 13.5px; color: rgba(255,255,255,0.82); line-height: 1.45; }
+.topic__text--done { color: rgba(255,255,255,0.35); text-decoration: line-through; }
+
+.week-project {
+  margin-top: 14px; padding: 14px 16px; border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(37,99,235,0.08));
+  border: 1px solid rgba(124,58,237,0.18);
+}
+.week-project__label {
+  font-size: 10px; font-weight: 800; color: var(--accent-soft);
+  letter-spacing: 1.2px; margin-bottom: 5px;
+}
+.week-project__text { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; }
+
+/* ── OVERVIEW GRID ── */
+.overview-title {
+  font-size: 20px; font-weight: 800; margin-top: 52px; margin-bottom: 20px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+.overview-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px;
+}
+.overview-card {
+  padding: 20px; border-radius: var(--radius); text-align: left;
+  background: var(--bg-card); border: 1px solid var(--border);
+  cursor: pointer; transition: border-color 0.2s, transform 0.2s;
+  font-family: inherit; color: white; width: 100%;
+}
+.overview-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+.overview-card--done { border-color: rgba(16,185,129,0.25); }
+.overview-card__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.overview-card__icon { font-size: 28px; }
+.overview-card__month { font-size: 12px; font-weight: 700; }
+.overview-card__title { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+.overview-card__info { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+.overview-card__bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.07); }
+.overview-card__bar-fill { height: 100%; border-radius: 2px; transition: width 0.6s; }
+
+/* ── SCHEDULE VIEW ── */
+.schedule-block {
+  display: flex; align-items: center; gap: 16px; padding: 16px 20px;
+  border-radius: var(--radius); background: var(--bg-card);
+  border: 1px solid var(--border); margin-bottom: 10px;
+}
+.schedule-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.schedule-info { flex: 1; }
+.schedule-name { font-weight: 600; font-size: 15px; }
+.schedule-desc { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+.schedule-badge {
+  padding: 5px 14px; border-radius: 20px;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.time-bar {
+  height: 32px; border-radius: var(--radius-sm); display: flex;
+  overflow: hidden; border: 1px solid var(--border); margin: 28px 0 40px;
+}
+.time-bar__seg {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: white; letter-spacing: 0.3px;
+}
+
+/* Lesson format grid */
+.format-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; }
+.format-card {
+  padding: 14px 16px; border-radius: 12px;
+  background: var(--bg-card); border: 1px solid var(--border);
+}
+.format-num {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: rgba(124,58,237,0.14); color: var(--accent-soft);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; margin-bottom: 10px;
+}
+.format-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.format-desc { font-size: 12px; color: var(--text-dim); line-height: 1.4; }
+
+/* Assessment row */
+.assess-row {
+  display: flex; align-items: center; gap: 14px; padding: 14px 18px;
+  border-radius: 12px; background: var(--bg-card);
+  border: 1px solid var(--border); margin-bottom: 8px;
+}
+.assess-badge {
+  padding: 4px 10px; border-radius: 6px;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+}
+.assess-title { font-weight: 600; font-size: 14px; }
+.assess-desc { font-size: 12px; color: var(--text-dim); }
+
+/* ── RESOURCES VIEW ── */
+.res-section { margin-bottom: 32px; }
+.res-heading {
+  font-size: 13px; font-weight: 800; color: var(--accent-soft);
+  letter-spacing: 1.2px; margin-bottom: 12px; text-transform: uppercase;
+}
+.res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 10px; }
+.res-card {
+  padding: 14px 16px; border-radius: 12px;
+  background: var(--bg-card); border: 1px solid var(--border);
+}
+.res-name { font-weight: 600; font-size: 14px; margin-bottom: 3px; }
+.res-url { font-size: 12px; color: #818cf8; margin-bottom: 4px; word-break: break-all; }
+.res-desc { font-size: 12px; color: var(--text-dim); }
+
+.cta-box {
+  margin-top: 40px; padding: 28px; border-radius: 18px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(37,99,235,0.08));
+  border: 1px solid rgba(124,58,237,0.18);
+}
+.cta-box__title { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.cta-box__text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+.section-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+.section-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.6; }
+.sub-title { font-size: 20px; font-weight: 800; margin-top: 44px; margin-bottom: 16px; }
+
+/* Footer */
+.footer {
+  padding: 22px 24px; text-align: center;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-dim);
+}
+.footer a { color: var(--accent-soft); text-decoration: none; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  padding: 10px 22px; border-radius: 10px;
+  background: rgba(16,185,129,0.9); color: white;
+  font-size: 13px; font-weight: 600;
+  opacity: 0; transition: opacity 0.3s;
+  pointer-events: none; z-index: 999;
+}
+.toast--show { opacity: 1; }
+
+@media (max-width: 600px) {
+  .hero__inner { padding: 28px 16px 28px; }
+  .main { padding: 20px 16px 56px; }
+  .month-panel { padding: 18px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .nav__inner { padding: 0 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero__glow-1"></div>
+  <div class="hero__glow-2"></div>
+  <div class="hero__inner">
+    <div class="hero__badge">
+      <span class="hero__dot"></span>
+      <span class="hero__badge-text">Free · Self-Paced · Open Source</span>
+    </div>
+    <h1 class="hero__title">Claude Ecosystem<br>Mastery Program</h1>
+    <p class="hero__subtitle">
+      An 8-month journey from beginner to AI engineer. Master Claude AI,
+      prompt engineering, Claude Code, GitHub, MCP servers, and AI engineering —
+      all in <strong>2 hours per day</strong>.
+    </p>
+
+    <div class="stats" id="stats"></div>
+    <div class="progress-track">
+      <div class="progress-fill" id="overallBar" style="width:0%"></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <button class="nav__tab nav__tab--active" data-view="roadmap">📍 Roadmap</button>
+    <button class="nav__tab" data-view="schedule">⏰ Daily Plan</button>
+    <button class="nav__tab" data-view="resources">📚 Resources</button>
+    <div class="nav__spacer"></div>
+    <button class="nav__btn nav__btn--export" id="exportBtn" title="Download your progress as JSON">⬇ Export</button>
+    <label class="nav__btn nav__btn--export" style="cursor:pointer" title="Import a previously exported progress file">
+      ⬆ Import
+      <input type="file" accept=".json" id="importInput" style="display:none">
+    </label>
+    <button class="nav__btn nav__btn--danger" id="resetBtn">Reset</button>
+  </div>
+</nav>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MAIN -->
+<main class="main">
+  <!-- ROADMAP SECTION -->
+  <section class="section section--active" id="sec-roadmap">
+    <div class="timeline" id="timeline"></div>
+    <div id="monthPanel"></div>
+    <h2 class="overview-title">Full 8-Month Roadmap</h2>
+    <div class="overview-grid" id="overviewGrid"></div>
+  </section>
+
+  <!-- SCHEDULE SECTION -->
+  <section class="section" id="sec-schedule">
+    <h2 class="section-title">Daily Study Structure</h2>
+    <p class="section-desc">Your 120-minute daily breakdown — designed for focused, deep learning every single day.</p>
+    <div id="scheduleBlocks"></div>
+    <div class="time-bar" id="timeBar"></div>
+
+    <h2 class="sub-title">Lesson Format</h2>
+    <p class="section-desc">Every lesson follows this 8-step structure for consistent, deep learning.</p>
+    <div class="format-grid" id="formatGrid"></div>
+
+    <h2 class="sub-title">Assessment Calendar</h2>
+    <div id="assessList"></div>
+  </section>
+
+  <!-- RESOURCES SECTION -->
+  <section class="section" id="sec-resources">
+    <h2 class="section-title">Essential Resources</h2>
+    <p class="section-desc">Curated tools, documentation, and learning materials for each phase of the program.</p>
+    <div id="resourcesList"></div>
+    <div class="cta-box">
+      <div class="cta-box__title">🎯 Where This Takes You</div>
+      <div class="cta-box__text">
+        After completing this program you'll be equipped to pursue AI Engineering roles,
+        build AI-powered tools, create automated workflows, contribute to open source,
+        and establish yourself at the intersection of education and AI innovation.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  Claude Ecosystem Mastery Program · Open Source · Created by
+  <a href="https://github.com" target="_blank" rel="noopener">A. Mohanaradha</a>
+  · Your progress is saved locally in your browser
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════
+//  DATA
+// ═══════════════════════════════════════════════
+const CURRICULUM = [
+  {
+    id:1, month:"Month 1", title:"Foundation & Claude Basics",
+    phase:"Phase 1 — Beginner Foundation", icon:"🧠", color:"#7c3aed",
+    objectives:["Understand AI & LLM fundamentals","Master Claude interface & Projects","Learn tokens, context windows, embeddings","Build confidence with daily Claude use"],
+    weeks:[
+      { week:1, title:"AI & LLM Fundamentals",
+        topics:["What is AI — types, history, current state","What are LLMs — how they work (simplified)","Tokens & tokenization — why they matter","Context windows explained with analogies","Embeddings basics — turning words into numbers","RAG vs Fine-tuning vs Prompt Engineering"],
+        project:"Write a 500-word explainer on 'How LLMs Work' using only Claude",
+        assessment:"20 MCQs on AI/LLM fundamentals" },
+      { week:2, title:"Claude Ecosystem Overview",
+        topics:["Claude models — Haiku, Sonnet, Opus differences","Claude.ai interface walkthrough","Claude Pro vs Team vs Enterprise plans","Claude API overview (conceptual)","When to use which Claude product","Claude vs ChatGPT vs Gemini comparison"],
+        project:"Create a comparison chart of all Claude models with use cases",
+        assessment:"20 MCQs on Claude ecosystem" },
+      { week:3, title:"Claude Projects & Artifacts",
+        topics:["Creating and organizing Claude Projects","System prompts — giving Claude a role","Knowledge base uploads and best practices","What are Artifacts — types and uses","Creating code, document, and visual Artifacts","Artifact iteration and version management"],
+        project:"Build a Claude Project with custom instructions for your own learning",
+        assessment:"20 MCQs on Projects & Artifacts" },
+      { week:4, title:"Claude Memory, Files & Workspaces",
+        topics:["Claude Memory — how it works and why","Managing, editing, and deleting memories","File uploads — types, size limits, strategies","Claude Workspaces for team organization","Collaboration features overview","Month 1 comprehensive revision"],
+        project:"Create a personal knowledge workspace and test all features",
+        assessment:"50 MCQs — Monthly Examination" }
+    ]
+  },
+  {
+    id:2, month:"Month 2", title:"Prompt Engineering Mastery",
+    phase:"Phase 2 — Prompt Engineer", icon:"✍️", color:"#2563eb",
+    objectives:["Master every prompt engineering technique","Write professional-grade prompts","Understand context engineering","Build a reusable prompt library"],
+    weeks:[
+      { week:1, title:"Prompt Foundations",
+        topics:["Prompt structure anatomy — the 5 elements","Role prompting — assigning Claude expertise","Instruction clarity — why specificity wins","Output formatting — JSON, XML, Markdown, tables","Comparing bad vs good vs professional prompts","Practice: rewrite 10 weak prompts into strong ones"],
+        project:"Build a 'Prompt Improver' that takes bad prompts and fixes them",
+        assessment:"20 MCQs on prompt foundations" },
+      { week:2, title:"Advanced Prompting Techniques",
+        topics:["Few-shot prompting — learning from examples","Chain-of-thought — making Claude reason step-by-step","Task decomposition — breaking complex jobs","XML tags for structured, predictable outputs","Markdown prompting for formatted responses","Combining multiple techniques in one prompt"],
+        project:"Create a multi-step research assistant for academic papers",
+        assessment:"20 MCQs on advanced techniques" },
+      { week:3, title:"Context & Agent Prompting",
+        topics:["Context engineering — what to include and exclude","Long-context management for 200K token windows","Agent prompting — tools, decisions, loops","Workflow prompting — multi-stage pipelines","System prompt design patterns","Multi-turn conversation architecture"],
+        project:"Design a college placement coordinator agent prompt",
+        assessment:"20 MCQs on context & agent prompting" },
+      { week:4, title:"Professional Prompt Library",
+        topics:["Building reusable, parameterized prompt templates","Domain-specific prompt patterns (education, coding, data)","Prompt testing — measuring quality and consistency","Prompt versioning and iteration strategies","Interview prep — prompt engineering job questions","Month 2 revision and prompt portfolio assembly"],
+        project:"Build a library of 20 professional prompts across 5 domains",
+        assessment:"50 MCQs — Monthly Examination" }
+    ]
+  },
+  {
+    id:3, month:"Month 3", title:"Claude Code & CLI Mastery",
+    phase:"Phase 3 — Claude Code Specialist", icon:"💻", color:"#059669",
+    objectives:["Install and configure Claude Code","Master all CLI commands","Use Claude Code for real projects","Automate development workflows"],
+    weeks:[
+      { week:1, title:"Terminal & Setup",
+        topics:["Terminal basics — navigating the command line","Node.js installation step-by-step","Claude Code installation and first run","Authentication and API key setup","Basic CLI commands walkthrough","Your first Claude Code coding session"],
+        project:"Install Claude Code and use it to analyze a sample project",
+        assessment:"20 MCQs on CLI & setup" },
+      { week:2, title:"Code Generation & Analysis",
+        topics:["Generating code with natural language prompts","Repository analysis — understanding any codebase","Refactoring — improving code with Claude","Code review — catching bugs and improvements","Documentation generation from code","Working with multiple files and folders"],
+        project:"Generate a complete Python utility library using Claude Code",
+        assessment:"20 MCQs on code generation" },
+      { week:3, title:"Debugging & Testing",
+        topics:["Debugging workflows — finding and fixing errors","Error message analysis with Claude","Generating unit tests automatically","Integration testing basics","Test coverage analysis","CI/CD-friendly code patterns"],
+        project:"Debug a buggy codebase and add comprehensive tests",
+        assessment:"20 MCQs on debugging & testing" },
+      { week:4, title:"Advanced Claude Code Workflows",
+        topics:["Multi-file project generation end-to-end","CLAUDE.md project configuration files","Automation scripts for repetitive tasks","Slash commands and keyboard shortcuts","Performance optimization with Claude","Month 3 capstone — build a full web app with Claude Code"],
+        project:"Build a complete web application using only Claude Code",
+        assessment:"50 MCQs — Monthly Examination" }
+    ]
+  },
+  {
+    id:4, month:"Month 4", title:"GitHub & VS Code Professional",
+    phase:"Phase 4 — Dev Tools Professional", icon:"🔧", color:"#d97706",
+    objectives:["Master Git from absolute scratch","Navigate GitHub confidently","Set up VS Code with Claude","Build AI-assisted dev workflows"],
+    weeks:[
+      { week:1, title:"Git Fundamentals",
+        topics:["Version control — what and why","Git installation and initial configuration","Repositories, staging area, commits explained","Branching — creating parallel work streams","Merging and resolving conflicts","Practice: 20 essential Git operations"],
+        project:"Create a Git repo and practice all basic operations",
+        assessment:"20 MCQs on Git fundamentals" },
+      { week:2, title:"GitHub Mastery",
+        topics:["GitHub account and SSH key setup","Remote repos — push, pull, clone, fetch","Pull Requests — creating and reviewing","Forks and open-source contribution workflow","Issues, labels, and project boards","GitHub Actions — automated workflows intro"],
+        project:"Fork a repo, make changes, and submit your first Pull Request",
+        assessment:"20 MCQs on GitHub" },
+      { week:3, title:"VS Code Power Setup",
+        topics:["VS Code installation and interface tour","Essential extensions for AI development","Claude extension setup and usage","GitHub integration — clone, commit, push from VS Code","Integrated terminal mastery","Keyboard shortcuts that save hours"],
+        project:"Set up a complete VS Code workspace with Claude + GitHub",
+        assessment:"20 MCQs on VS Code" },
+      { week:4, title:"AI-Assisted Development",
+        topics:["Claude-powered code review workflows","Auto-generating documentation from codebases","AI-assisted debugging in VS Code","Repository analysis with Claude connectors","Professional dev workflow design","Month 4 — build and publish 3 projects on GitHub"],
+        project:"Publish a GitHub portfolio with 3 documented AI-assisted projects",
+        assessment:"50 MCQs — Monthly Examination" }
+    ]
+  },
+  {
+    id:5, month:"Month 5", title:"Connectors & MCP Servers",
+    phase:"Phase 5 — Integration Specialist", icon:"🔗", color:"#dc2626",
+    objectives:["Use all Claude Connectors","Understand MCP architecture","Build MCP servers from scratch","Connect Claude to external systems"],
+    weeks:[
+      { week:1, title:"Connectors Deep Dive",
+        topics:["What are connectors and why they matter","GitHub connector — setup and workflows","Google Drive connector for document access","Slack, Notion, and Jira connectors","Authentication and security for connectors","Real-world use cases and best practices"],
+        project:"Connect 3 tools to Claude and automate a workflow",
+        assessment:"20 MCQs on connectors" },
+      { week:2, title:"MCP Fundamentals",
+        topics:["Model Context Protocol — what and why","MCP architecture — clients, servers, transports","Tools vs Resources vs Prompts in MCP","MCP vs REST APIs — when to use which","The MCP ecosystem and community servers","Setting up your first MCP connection"],
+        project:"Install and use 3 community MCP servers with Claude",
+        assessment:"20 MCQs on MCP fundamentals" },
+      { week:3, title:"Building MCP Servers",
+        topics:["MCP server project structure in Python","Implementing tools — the core of MCP","Adding resources for data access","Testing and debugging MCP servers","Error handling and edge cases","Building an intermediate server with database access"],
+        project:"Build an MCP server that reads data from a spreadsheet",
+        assessment:"20 MCQs on building MCP servers" },
+      { week:4, title:"Advanced MCP",
+        topics:["Multi-tool MCP servers with complex logic","MCP with external APIs and databases","Authentication and security in production","Deployment strategies for MCP servers","Performance optimization","Month 5 capstone — production-ready MCP server"],
+        project:"Build and deploy a placement tracking MCP server",
+        assessment:"50 MCQs — Monthly Examination" }
+    ]
+  },
+  {
+    id:6, month:"Month 6", title:"AI Engineering Fundamentals",
+    phase:"Phase 6 — AI Engineer", icon:"⚙️", color:"#7c3aed",
+    objectives:["Learn Python for AI work","Master the Claude API","Build RAG systems","Create AI agents"],
+    weeks:[
+      { week:1, title:"Python & API Basics",
+        topics:["Python essentials — variables, functions, loops, dicts","Working with JSON — parsing and creating","REST API concepts — endpoints, methods, headers","HTTP status codes and error handling","Claude API — your first programmatic call","Processing and formatting API responses"],
+        project:"Build a Python script that calls Claude API for batch processing",
+        assessment:"20 MCQs on Python & APIs" },
+      { week:2, title:"Databases & Vector Stores",
+        topics:["Database fundamentals — tables, queries, SQL basics","NoSQL databases — document stores overview","Vector databases — why AI needs them","Embeddings — turning text into searchable vectors","Setting up ChromaDB or similar","Connecting databases to your AI pipeline"],
+        project:"Build a searchable knowledge base with vector embeddings",
+        assessment:"20 MCQs on databases" },
+      { week:3, title:"RAG Systems",
+        topics:["RAG architecture — retrieval + generation","Document loading and chunking strategies","Embedding generation and storage","Similarity search and retrieval ranking","Building a complete RAG pipeline","Evaluating and improving RAG quality"],
+        project:"Build a RAG system over your own document collection",
+        assessment:"20 MCQs on RAG systems" },
+      { week:4, title:"AI Agents & Automation",
+        topics:["Agent architecture — perceive, decide, act","Tool use and function calling with Claude","Multi-step workflow orchestration","Error recovery and fallback strategies","Building a task-specific agent","Month 6 capstone — automated report generation agent"],
+        project:"Build an AI agent that automates a real workflow for you",
+        assessment:"50 MCQs — Monthly Examination" }
+    ]
+  },
+  {
+    id:7, month:"Month 7", title:"Advanced Projects & Portfolio",
+    phase:"Phase 7 — Portfolio Builder", icon:"🚀", color:"#0891b2",
+    objectives:["Build 3 production-quality projects","Create a professional GitHub portfolio","Write technical documentation","Demonstrate end-to-end AI skills"],
+    weeks:[
+      { week:1, title:"Project 1 — AI Teaching Assistant",
+        topics:["Requirements gathering and system design","Building the knowledge base with RAG","Claude API integration with streaming","Prompt engineering for educational context","Testing with real student questions","Polishing UI and error handling"],
+        project:"Build and deploy an AI Teaching Assistant",
+        assessment:"Project review and rubric evaluation" },
+      { week:2, title:"Project 2 — Smart Analytics Dashboard",
+        topics:["Data pipeline design and implementation","API development with Python + FastAPI","Claude-powered natural language insights","Visualization and dashboard frontend","End-to-end integration testing","Performance optimization and caching"],
+        project:"Build an AI-powered analytics dashboard",
+        assessment:"Project review and rubric evaluation" },
+      { week:3, title:"Project 3 — Multi-Agent System",
+        topics:["Multi-agent architecture planning","Agent communication and coordination","Tool orchestration across agents","Error handling and graceful degradation","Monitoring, logging, and observability","Production deployment checklist"],
+        project:"Build a multi-agent system that coordinates a real workflow",
+        assessment:"Project review and rubric evaluation" },
+      { week:4, title:"Portfolio Polish",
+        topics:["GitHub profile and repo best practices","README writing that impresses recruiters","Technical blog post writing","Creating project demo recordings","Building your online presence","Month 7 — all projects published and documented"],
+        project:"Publish all projects with professional documentation on GitHub",
+        assessment:"50 MCQs — Monthly Examination" }
+    ]
+  },
+  {
+    id:8, month:"Month 8", title:"Job Readiness & Career Launch",
+    phase:"Phase 8 — Career Ready", icon:"🎯", color:"#ea580c",
+    objectives:["Ace AI engineering interviews","Build professional network","Create career action plan","Launch your AI career path"],
+    weeks:[
+      { week:1, title:"Technical Interview Prep",
+        topics:["AI Engineering role landscape and salaries","System design interview patterns for AI","Prompt engineering interview questions","Live coding challenges with Claude Code","API design and architecture questions","Mock technical interviews with self-scoring"],
+        project:"Complete 3 timed mock technical interviews",
+        assessment:"20 MCQs — technical interview prep" },
+      { week:2, title:"Behavioral Interview Prep",
+        topics:["STAR method adapted for AI/tech roles","Presenting your projects with impact metrics","Handling 'walk me through your architecture' questions","Salary negotiation frameworks","Remote work and async collaboration signals","Culture fit and values alignment"],
+        project:"Record and self-critique 5 behavioral interview answers",
+        assessment:"20 MCQs — behavioral prep" },
+      { week:3, title:"Professional Presence",
+        topics:["LinkedIn optimization for AI roles","Writing technical articles that get noticed","Open-source contribution strategy","AI community engagement plan","Personal brand as educator + engineer","Conference and meetup participation"],
+        project:"Publish 2 technical articles and optimize all profiles",
+        assessment:"20 MCQs — professional development" },
+      { week:4, title:"Career Launch",
+        topics:["Job search strategy and application pipeline","Freelancing and consulting with AI skills","Teaching and course creation opportunities","Staying current — newsletters, papers, communities","Building a second income stream with AI","Final celebration and 12-month action plan"],
+        project:"Create your personalized 12-month career action plan",
+        assessment:"100 MCQs — Final Comprehensive Examination" }
+    ]
+  }
+];
+
+const DAILY = [
+  { label:"Concept Learning", mins:30, color:"#7c3aed", icon:"📖", desc:"Read docs, watch tutorials, understand the theory" },
+  { label:"Hands-on Practice", mins:40, color:"#2563eb", icon:"⚡", desc:"Code along, build mini-projects, experiment freely" },
+  { label:"Exercises & Homework", mins:25, color:"#059669", icon:"📝", desc:"Complete assigned exercises and stretch challenges" },
+  { label:"Revision & Notes", mins:15, color:"#d97706", icon:"🔄", desc:"Summarize key takeaways in your own words" },
+  { label:"Quick Quiz", mins:10, color:"#dc2626", icon:"🧪", desc:"5-question self-check on today's material" }
+];
+
+const FORMATS = [
+  { n:"1", t:"Concept Explanation", d:"Clear, first-principles breakdown" },
+  { n:"2", t:"Why It Matters", d:"Real-world relevance and motivation" },
+  { n:"3", t:"Live Example", d:"Working demo or walkthrough" },
+  { n:"4", t:"Hands-on Practice", d:"You build it yourself" },
+  { n:"5", t:"Homework", d:"Extended practice assignment" },
+  { n:"6", t:"Common Mistakes", d:"Pitfalls and how to avoid them" },
+  { n:"7", t:"Interview Questions", d:"Prep for real job interviews" },
+  { n:"8", t:"Summary Notes", d:"Quick-reference revision card" }
+];
+
+const ASSESSMENTS = [
+  { freq:"Weekly", type:"20 MCQs", desc:"Beginner + intermediate + scenario-based questions", color:"#2563eb" },
+  { freq:"Monthly", type:"50 MCQs", desc:"Mixed difficulty with real-world problem solving", color:"#7c3aed" },
+  { freq:"Final", type:"100 MCQs", desc:"Comprehensive examination across all 8 months", color:"#dc2626" },
+  { freq:"Monthly", type:"3 Projects", desc:"1 beginner + 1 intermediate + 1 advanced", color:"#059669" }
+];
+
+const RESOURCES = [
+  { cat:"Claude Official", items:[
+    { n:"Claude Documentation", u:"docs.anthropic.com", d:"API reference, guides, tutorials" },
+    { n:"Prompt Engineering Guide", u:"docs.anthropic.com/en/docs/build-with-claude/prompt-engineering", d:"Official prompt techniques" },
+    { n:"Anthropic Cookbook", u:"github.com/anthropics/anthropic-cookbook", d:"Code recipes and patterns" },
+    { n:"Claude Code Docs", u:"docs.anthropic.com/en/docs/claude-code", d:"CLI tool documentation" }
+  ]},
+  { cat:"Development Tools", items:[
+    { n:"VS Code", u:"code.visualstudio.com", d:"Free code editor with Claude support" },
+    { n:"GitHub", u:"github.com", d:"Version control and portfolio hosting" },
+    { n:"Python", u:"python.org", d:"Programming language for AI engineering" },
+    { n:"Node.js", u:"nodejs.org", d:"JavaScript runtime (needed for Claude Code)" }
+  ]},
+  { cat:"AI Engineering", items:[
+    { n:"MCP Protocol", u:"modelcontextprotocol.io", d:"Model Context Protocol specification" },
+    { n:"LangChain", u:"python.langchain.com", d:"Framework for LLM applications" },
+    { n:"ChromaDB", u:"trychroma.com", d:"Open-source vector database" },
+    { n:"FastAPI", u:"fastapi.tiangolo.com", d:"Modern Python web framework for APIs" }
+  ]},
+  { cat:"Learning & Community", items:[
+    { n:"Anthropic Blog", u:"anthropic.com/news", d:"Latest research and product updates" },
+    { n:"freeCodeCamp", u:"freecodecamp.org", d:"Free coding courses and certifications" },
+    { n:"Learn Git Branching", u:"learngitbranching.js.org", d:"Interactive Git visualization tool" },
+    { n:"Python Tutorial", u:"docs.python.org/3/tutorial", d:"Official Python beginner guide" }
+  ]}
+];
+
+// ═══════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════
+const STORAGE_KEY = "claude-mastery-v1";
+let completed = {};
+let activeMonth = 1;
+let openWeeks = {};
+
+function loadProgress() {
+  try { completed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); }
+  catch { completed = {}; }
+}
+function saveProgress() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
+}
+function toggleTopic(key) {
+  if (completed[key]) delete completed[key]; else completed[key] = Date.now();
+  saveProgress();
+  render();
+}
+function getMonthPct(m) {
+  let total = 0, done = 0;
+  m.weeks.forEach((w, wi) => {
+    w.topics.forEach((_, ti) => {
+      total++;
+      if (completed[`m${m.id}w${wi+1}t${ti}`]) done++;
+    });
+  });
+  return total ? (done / total) * 100 : 0;
+}
+function getTotals() {
+  let total = 0;
+  CURRICULUM.forEach(m => m.weeks.forEach(w => total += w.topics.length));
+  return { total, done: Object.keys(completed).length };
+}
+
+// ═══════════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════════
+function render() {
+  renderStats();
+  renderTimeline();
+  renderMonthPanel();
+  renderOverview();
+}
+
+function renderStats() {
+  const { total, done } = getTotals();
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  document.getElementById("stats").innerHTML = [
+    { l:"Overall Progress", v:`${pct}%`, s:`${done} / ${total} topics` },
+    { l:"Duration", v:"8 Months", s:"2 hrs/day · 5 days/week" },
+    { l:"Total Projects", v:"32", s:"Weekly + monthly" },
+    { l:"Assessments", v:"40", s:"Quizzes + exams" }
+  ].map(s => `<div class="stat"><div class="stat__label">${s.l}</div><div class="stat__value">${s.v}</div><div class="stat__sub">${s.s}</div></div>`).join("");
+
+  const bar = document.getElementById("overallBar");
+  bar.style.width = pct + "%";
+  bar.dataset.active = pct > 0;
+}
+
+function renderTimeline() {
+  document.getElementById("timeline").innerHTML = CURRICULUM.map(m => {
+    const pct = getMonthPct(m);
+    const active = m.id === activeMonth;
+    return `<button class="timeline__btn ${active ? "timeline__btn--active" : ""}" onclick="setMonth(${m.id})" style="${active ? `border-color:${m.color};background:${m.color}11` : ""}">
+      <span class="timeline__icon">${m.icon}</span>
+      <span>M${m.id}</span>
+      ${pct === 100 ? '<span class="timeline__check">✓</span>' : ""}
+    </button>`;
+  }).join("");
+}
+
+function svgRing(pct, color, size = 56) {
+  const s = 5, r = (size - s) / 2, c = 2 * Math.PI * r;
+  const off = c - (pct / 100) * c;
+  return `<svg width="${size}" height="${size}" style="transform:rotate(-90deg)">
+    <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="${s}"/>
+    <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="${s}"
+      stroke-dasharray="${c}" stroke-dashoffset="${off}" stroke-linecap="round" style="transition:stroke-dashoffset 0.8s"/>
+    <text x="${size/2}" y="${size/2}" text-anchor="middle" dominant-baseline="central"
+      fill="white" font-size="${size*0.22}" font-weight="700"
+      style="transform:rotate(90deg);transform-origin:center">${Math.round(pct)}%</text>
+  </svg>`;
+}
+
+function renderMonthPanel() {
+  const m = CURRICULUM.find(x => x.id === activeMonth);
+  const pct = getMonthPct(m);
+
+  let html = `<div class="month-panel" style="border-color:${m.color}33">
+    <div class="month-header">
+      <div class="month-icon" style="background:${m.color}18">${m.icon}</div>
+      <div class="month-meta">
+        <div class="month-phase" style="color:${m.color}">${m.phase}</div>
+        <div class="month-title">${m.title}</div>
+      </div>
+      <div class="ring-wrap">${svgRing(pct, m.color)}</div>
+    </div>
+    <div class="objectives">${m.objectives.map(o => `<span class="obj-tag">${o}</span>`).join("")}</div>
+    <div class="weeks-list">`;
+
+  m.weeks.forEach((w, wi) => {
+    const wKey = `m${m.id}w${wi+1}`;
+    const total = w.topics.length;
+    const done = w.topics.filter((_,ti) => completed[`${wKey}t${ti}`]).length;
+    const wp = total ? (done/total)*100 : 0;
+    const isOpen = openWeeks[wKey];
+    const isDone = wp === 100;
+
+    html += `<div class="week-card">
+      <button class="week-header" onclick="toggleWeek('${wKey}')">
+        <div class="week-num ${isDone ? 'week-num--done' : 'week-num--pending'}">
+          ${isDone ? '✓' : 'W'+(wi+1)}
+        </div>
+        <div class="week-info">
+          <div class="week-name">${w.title}</div>
+          <div class="week-sub">${done}/${total} topics · ${w.assessment}</div>
+        </div>
+        <div class="week-bar"><div class="week-bar__fill" style="width:${wp}%;background:${isDone ? '#10b981' : m.color}"></div></div>
+        <span class="week-chevron ${isOpen ? 'week-chevron--open' : ''}">▾</span>
+      </button>`;
+
+    if (isOpen) {
+      html += `<div class="week-body">
+        <div class="week-body__label">DAILY TOPICS</div>`;
+      w.topics.forEach((t, ti) => {
+        const key = `${wKey}t${ti}`;
+        const chk = !!completed[key];
+        html += `<label class="topic" onclick="event.preventDefault();toggleTopic('${key}')">
+          <input type="checkbox" class="topic__check" ${chk ? 'checked' : ''} tabindex="-1">
+          <span class="topic__text ${chk ? 'topic__text--done' : ''}">Day ${ti+1}: ${t}</span>
+        </label>`;
+      });
+      if (w.project) {
+        html += `<div class="week-project">
+          <div class="week-project__label">📦 WEEKLY PROJECT</div>
+          <div class="week-project__text">${w.project}</div>
+        </div>`;
+      }
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+
+  html += `</div></div>`;
+  document.getElementById("monthPanel").innerHTML = html;
+}
+
+function renderOverview() {
+  document.getElementById("overviewGrid").innerHTML = CURRICULUM.map(m => {
+    const pct = getMonthPct(m);
+    const total = m.weeks.reduce((s,w) => s + w.topics.length, 0);
+    return `<button class="overview-card ${pct===100 ? 'overview-card--done' : ''}" onclick="setMonth(${m.id});window.scrollTo({top:280,behavior:'smooth'})">
+      <div class="overview-card__top">
+        <span class="overview-card__icon">${m.icon}</span>
+        <span class="overview-card__month" style="color:${m.color}">${m.month}</span>
+      </div>
+      <div class="overview-card__title">${m.title}</div>
+      <div class="overview-card__info">${total} topics · 4 weeks · ${m.weeks.length} projects</div>
+      <div class="overview-card__bar"><div class="overview-card__bar-fill" style="width:${pct}%;background:${pct===100?'#10b981':m.color}"></div></div>
+    </button>`;
+  }).join("");
+}
+
+// ── Schedule ──
+function renderSchedule() {
+  document.getElementById("scheduleBlocks").innerHTML = DAILY.map(b =>
+    `<div class="schedule-block">
+      <div class="schedule-icon" style="background:${b.color}18">${b.icon}</div>
+      <div class="schedule-info">
+        <div class="schedule-name">${b.label}</div>
+        <div class="schedule-desc">${b.desc}</div>
+      </div>
+      <div class="schedule-badge" style="background:${b.color}1a;color:${b.color}">${b.mins} min</div>
+    </div>`
+  ).join("");
+
+  document.getElementById("timeBar").innerHTML = DAILY.map(b =>
+    `<div class="time-bar__seg" style="width:${(b.mins/120)*100}%;background:${b.color}">${b.mins}m</div>`
+  ).join("");
+
+  document.getElementById("formatGrid").innerHTML = FORMATS.map(f =>
+    `<div class="format-card">
+      <div class="format-num">${f.n}</div>
+      <div class="format-title">${f.t}</div>
+      <div class="format-desc">${f.d}</div>
+    </div>`
+  ).join("");
+
+  document.getElementById("assessList").innerHTML = ASSESSMENTS.map(a =>
+    `<div class="assess-row">
+      <div class="assess-badge" style="background:${a.color}1a;color:${a.color}">${a.freq}</div>
+      <div><div class="assess-title">${a.type}</div><div class="assess-desc">${a.desc}</div></div>
+    </div>`
+  ).join("");
+}
+
+// ── Resources ──
+function renderResources() {
+  document.getElementById("resourcesList").innerHTML = RESOURCES.map(cat =>
+    `<div class="res-section">
+      <div class="res-heading">${cat.cat}</div>
+      <div class="res-grid">${cat.items.map(i =>
+        `<div class="res-card">
+          <div class="res-name">${i.n}</div>
+          <div class="res-url">${i.u}</div>
+          <div class="res-desc">${i.d}</div>
+        </div>`
+      ).join("")}</div>
+    </div>`
+  ).join("");
+}
+
+// ═══════════════════════════════════════════════
+//  INTERACTIONS
+// ═══════════════════════════════════════════════
+function setMonth(id) {
+  activeMonth = id;
+  render();
+}
+function toggleWeek(key) {
+  openWeeks[key] = !openWeeks[key];
+  renderMonthPanel();
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("toast--show");
+  setTimeout(() => t.classList.remove("toast--show"), 2200);
+}
+
+// Tabs
+document.querySelectorAll(".nav__tab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".nav__tab").forEach(b => b.classList.remove("nav__tab--active"));
+    btn.classList.add("nav__tab--active");
+    document.querySelectorAll(".section").forEach(s => s.classList.remove("section--active"));
+    document.getElementById("sec-" + btn.dataset.view).classList.add("section--active");
+  });
+});
+
+// Reset
+document.getElementById("resetBtn").addEventListener("click", () => {
+  if (confirm("Reset all progress? This cannot be undone.")) {
+    completed = {};
+    saveProgress();
+    render();
+    showToast("Progress reset");
+  }
+});
+
+// Export
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const data = JSON.stringify({ version: 1, exported: new Date().toISOString(), progress: completed }, null, 2);
+  const blob = new Blob([data], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "claude-mastery-progress.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast("Progress exported ✓");
+});
+
+// Import
+document.getElementById("importInput").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (data.progress && typeof data.progress === "object") {
+        completed = data.progress;
+        saveProgress();
+        render();
+        showToast("Progress imported ✓");
+      } else {
+        alert("Invalid file format.");
+      }
+    } catch { alert("Could not read file."); }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+// ═══════════════════════════════════════════════
+//  BOOT
+// ═══════════════════════════════════════════════
+loadProgress();
+render();
+renderSchedule();
+renderResources();
+</script>
+</body>
+</html>
