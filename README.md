@@ -359,7 +359,7 @@ If you adapt this for your own curriculum or institution, please credit the orig
 ## 👩‍💻 Author
 
 **A. Mohanaradha**  
-Corporate Relations Coordinator · AI Educator · PhD Scholar  
+Corporate Relations Coordinator · Educator · PhD Scholar  
 📍 Pondicherry, India
 
 > *"Built not for certificates, but for capability. The goal is not to finish — it's to become."*
@@ -368,7 +368,7 @@ Corporate Relations Coordinator · AI Educator · PhD Scholar
 
 <div align="center">
 
-**Claude Ecosystem Mastery Program** · Open Source · 2025
+**Claude Ecosystem Mastery Program** · Open Source · 2027
 
 *Your progress is saved locally. Your future is built daily.*
 
