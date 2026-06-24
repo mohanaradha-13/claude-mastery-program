@@ -2,7 +2,7 @@
 
 > **An 8-month self-paced curriculum to master Claude AI, prompt engineering, Claude Code, GitHub, MCP servers, and AI engineering — from beginner to professional.**
 
-[![Status](https://img.shields.io/badge/status-active-28c840?style=flat-square)](.) [![License](https://img.shields.io/badge/license-Open%20Source-7c3aed?style=flat-square)](.) [![Built With](https://img.shields.io/badge/built%20with-Vanilla%20HTML%2FJS-2563eb?style=flat-square)](.) [![MCQs](https://img.shields.io/badge/MCQs-640%20questions-ea580c?style=flat-square)](.) [![Progress](https://img.shields.io/badge/progress-saved%20locally-059669?style=flat-square)](.)</
+[![Status](https://img.shields.io/badge/status-active-28c840?style=flat-square)](.) [![License](https://img.shields.io/badge/license-Open%20Source-7c3aed?style=flat-square)](.) [![Built With](https://img.shields.io/badge/built%20with-Vanilla%20HTML%2FJS-2563eb?style=flat-square)](.) [![MCQs](https://img.shields.io/badge/MCQs-640%20questions-ea580c?style=flat-square)](.) [![Progress](https://img.shields.io/badge/progress-saved%20locally-059669?style=flat-square)](.)
 
 ---
 
